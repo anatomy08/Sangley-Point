@@ -102,13 +102,6 @@ public class PlayerControls : MonoBehaviour
            }
     }
 
-
-    
-
- 
-    
-
-
 }
 
 /*  or this code 

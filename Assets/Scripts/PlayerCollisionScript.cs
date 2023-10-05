@@ -7,11 +7,13 @@ public class PlayerCollisionScript : MonoBehaviour
 {
     PlayerControls playerControls;
     DisabledChildren disabledChildren;
-    
+    [SerializeField] GameObject playerExplosionSound;
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] float timeDelay = 2f;
 
     MeshRenderer[] childRenderers;
+
+    bool hasExplode = false;
     void Start()
     {
         playerControls = GetComponent<PlayerControls>();
@@ -22,7 +24,7 @@ public class PlayerCollisionScript : MonoBehaviour
     
     void OnCollisionEnter(Collision other) 
     {
-        
+        if(hasExplode) {return;}
 
         switch (other.gameObject.tag)
         {
@@ -55,6 +57,8 @@ public class PlayerCollisionScript : MonoBehaviour
         explosionParticles.Play();
         disabledChildren.DisableSpecificChildren();
         GetComponent<BoxCollider>().enabled = false;
+        Instantiate(playerExplosionSound, transform.position, Quaternion.identity);
+        hasExplode = true;
     }
     
     void HideChildrenObjects()
