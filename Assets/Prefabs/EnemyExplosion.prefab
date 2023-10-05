@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4995160475307008887}
   - component: {fileID: 8090764560151211926}
   - component: {fileID: 7375765829664053526}
+  - component: {fileID: 7515794441247360754}
   m_Layer: 0
-  m_Name: ExplosionEffect
+  m_Name: EnemyExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +51,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -228,7 +229,7 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 1, g: 0.98071563, b: 0, a: 1}
         key1: {r: 1, g: 0.7983495, b: 0.26666665, a: 1}
-        key2: {r: 0.9339623, g: 0, b: 0, a: 0}
+        key2: {r: 0.93333334, g: 0.9032573, b: 0, a: 0}
         key3: {r: 0.9647059, g: 0.942471, b: 0.46666667, a: 0}
         key4: {r: 0.9843137, g: 0.88594663, b: 0.74509805, a: 0}
         key5: {r: 1, g: 1, b: 1, a: 0}
@@ -4813,3 +4814,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7515794441247360754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377640213026642541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f3eb4c300482e4fb64e3cfa8772175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DelayDestroy: 3

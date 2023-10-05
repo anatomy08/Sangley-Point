@@ -33,6 +33,7 @@ public class PlayerControls : MonoBehaviour
    
     void Update()
     {
+       if(isCrashed) {return;} 
        MovementControls();
        RotationControls();
        ProcessFiring();
@@ -59,7 +60,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovementControls()
     {
-        if(isCrashed) {return;}
+        
 
        float horizontalThrow = Input.GetAxis("Horizontal"); 
        float verticalThrow = Input.GetAxis("Vertical");
@@ -77,9 +78,9 @@ public class PlayerControls : MonoBehaviour
        transform.localPosition = new Vector3(clampedXpos,clampedYpos,transform.localPosition.z);
     }
 
-    void ProcessFiring()
+    public void ProcessFiring()
     {
-        if(isCrashed) {return;}
+        
 
         if(Input.GetButton("Fire1"))
         {
@@ -91,8 +92,9 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    void SetGunToActive(bool isActive)
+     void SetGunToActive(bool isActive)
     {
+        
            foreach(GameObject fire in machineGun)
            {
                 var emissionModule = fire.GetComponent<ParticleSystem>().emission;
@@ -100,6 +102,10 @@ public class PlayerControls : MonoBehaviour
            }
     }
 
+
+    
+
+ 
     
 
 

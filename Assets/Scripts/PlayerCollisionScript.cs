@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 public class PlayerCollisionScript : MonoBehaviour
 {
     PlayerControls playerControls;
+    DisabledChildren disabledChildren;
     
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] float timeDelay = 2f;
+
+    MeshRenderer[] childRenderers;
     void Start()
     {
         playerControls = GetComponent<PlayerControls>();
-      
+        childRenderers = GetComponentsInChildren<MeshRenderer>();
+        disabledChildren = GetComponent<DisabledChildren>();
         
     }
     
@@ -28,13 +32,13 @@ public class PlayerCollisionScript : MonoBehaviour
             case "Projectiles":
                 playerControls.isCrashed = true;
                 Explosion();
-                
+                HideChildrenObjects();
                 Invoke(nameof(ResetScene), timeDelay);
                 break;
             case "Enemies":
                 playerControls.isCrashed = true;
                 Explosion();
-                
+                HideChildrenObjects();
                 Invoke(nameof(ResetScene), timeDelay);
                 break;
             
@@ -49,6 +53,19 @@ public class PlayerCollisionScript : MonoBehaviour
     void Explosion()
     {
         explosionParticles.Play();
+        disabledChildren.DisableSpecificChildren();
+        GetComponent<BoxCollider>().enabled = false;
     }
+    
+    void HideChildrenObjects()
+    {
+         foreach (MeshRenderer renderer in childRenderers)
+         {
+            renderer.enabled = false;
+         }
+    }
+
+    
+
     
 }
