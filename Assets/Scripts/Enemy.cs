@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour 
 {
@@ -29,7 +29,15 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         scoreHandler = FindObjectOfType<ScoreHandler>();
+        AddRigidbody();
     }
+
+    void AddRigidbody()
+    {
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
+    }
+
     void OnParticleCollision(GameObject other) 
     {
         hp -= 10;
