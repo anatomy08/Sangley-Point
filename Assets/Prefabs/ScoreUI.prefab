@@ -168,7 +168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10000
+  m_text: 000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90c94e5f12673c2428eeb9e922da5eb1, type: 2}
   m_sharedMaterial: {fileID: 7482838528757497723, guid: 90c94e5f12673c2428eeb9e922da5eb1, type: 2}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 3.1743164, z: -374.46802, w: -82.53461}
+  m_margin: {x: 0, y: 3.1744385, z: -1551.7958, w: -264.42517}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -249,4 +249,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce09d81424d1e254da0ea45ce4f056af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}

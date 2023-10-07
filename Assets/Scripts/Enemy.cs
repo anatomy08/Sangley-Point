@@ -14,13 +14,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Enemy HitPoints Tab")]
     [SerializeField]  float hp = 60;
-
-    [Header("Transform to Parents Tab")]
-    [SerializeField] Transform parents;
-
+    
     [Header("Scoresystem Tab")]
-    [SerializeField] int scoreIncrease = 10; // score increase every hp = 0 or gameobject destroy
+    [SerializeField] int scoreIncrease = 10; 
 
+    GameObject parentsOfGameObject; // here
     ScoreHandler scoreHandler;
 
 
@@ -30,6 +28,7 @@ public class Enemy : MonoBehaviour
     {
         scoreHandler = FindObjectOfType<ScoreHandler>();
         AddRigidbody();
+        parentsOfGameObject = GameObject.FindWithTag("SpawnAtRunTime"); // here
     }
 
     void AddRigidbody()
@@ -49,13 +48,13 @@ public class Enemy : MonoBehaviour
           scoreHandler.ScoreSystem(scoreIncrease);
 
           GameObject hitEffect = Instantiate(enemyHit, transform.position, Quaternion.identity);
-          hitEffect.transform.parent = parents;
+          hitEffect.transform.parent = parentsOfGameObject.transform; // here
           
           GameObject SoundSFX = Instantiate(enemyExplosionSounds, transform.position, Quaternion.identity);
-          SoundSFX.transform.parent = parents;
+          SoundSFX.transform.parent = parentsOfGameObject.transform; // here
           
           GameObject Explosion = Instantiate(enemyExplosion, transform.position, Quaternion.identity);
-          Explosion.transform.parent = parents; // i i want to set up to a parent (optional)
+          Explosion.transform.parent = parentsOfGameObject.transform; // i i want to set up to a parent (optional) // and here
           
 
           Destroy(gameObject);

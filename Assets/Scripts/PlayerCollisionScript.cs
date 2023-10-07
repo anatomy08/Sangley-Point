@@ -20,6 +20,7 @@ public class PlayerCollisionScript : MonoBehaviour
         childRenderers = GetComponentsInChildren<MeshRenderer>();
         disabledChildren = GetComponent<DisabledChildren>();
         
+        
     }
     
     void OnCollisionEnter(Collision other) 
@@ -49,7 +50,8 @@ public class PlayerCollisionScript : MonoBehaviour
 
     void ResetScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+             
     }
 
     void Explosion()
